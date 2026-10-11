@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tax Wrapper – Finance tools for e-commerce sellers</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><div class="w nav">
+<a class="brand" href="#top" aria-label="Tax Wrapper home">
+<svg viewBox="180 118 400 370" aria-hidden="true"><polygon fill="var(--ink)" points="230,128 540,128 570,198 190,198"/><polygon fill="var(--ink)" points="385,204 462,204 372,478 285,478"/><polygon fill="#ff7410" points="200,222 278,222 310,318 272,436"/><polygon fill="#ff7410" points="482,224 563,224 480,479 397,479"/></svg>
+Tax Wrapper</a>
+<nav><a href="#tools">Tools</a><a href="#services">Why us</a><a href="#consult">Consultation</a></nav>
+<a class="btn" href="#consult">Book a call</a>
+</div></header>
+
+<main id="top">
+<div class="w hero">
+<div>
+<h1>Tax and accounts for people who sell online.</h1>
+<p>Calculators, invoices and deadlines built around how marketplace sellers actually work, with a real expert a call away.</p>
+<div class="cta"><a class="btn" href="#tools">Open the tools</a><a class="btn o" href="#consult">Talk to an expert</a></div>
+<div class="mk"><span>Amazon</span><span>Flipkart</span><span>Myntra</span><span>Meesho</span><span>Shopify</span></div>
+</div>
+<div class="due" aria-live="polite"><h3>Coming up for sellers</h3><div id="soon"></div></div>
+</div>
+
+<section class="alt" id="tools"><div class="w">
+<div class="sh"><h2>Free tools</h2><p>Everything runs in your browser. Nothing you enter is stored or sent anywhere.</p></div>
+<div class="tabs" role="tablist">
+<button role="tab" aria-selected="true" data-t="tds">TDS interest</button>
+<button role="tab" aria-selected="false" data-t="inv">Invoice generator</button>
+<button role="tab" aria-selected="false" data-t="cal">Tax calendar</button>
+<button role="tab" aria-selected="false" data-t="tax">Tax calculator</button>
+</div>
+
+<div class="panel on" id="p-tds">
+<div class="g">
+<label>TDS amount (₹)<input id="t_amt" type="number" min="0" value="10000"></label>
+<label>Date tax was due to be deducted<input id="t_d1" type="date"></label>
+<label>Date tax was actually deducted<input id="t_d2" type="date"></label>
+<label>Date tax was deposited<input id="t_d3" type="date"></label>
+</div>
+<div class="res" id="t_out"></div>
+<p class="note">Late deduction is charged at 1% a month and late deposit at 1.5% a month. A part of a month counts as a full month.</p>
+</div>
+
+<div class="panel" id="p-inv">
+<div class="g">
+<label>Your business name<input id="i_sn" value="Your Store Pvt Ltd"></label>
+<label>Your GSTIN<input id="i_sg" placeholder="22AAAAA0000A1Z5"></label>
+<label>Buyer name<input id="i_bn" value="Customer name"></label>
+<label>Invoice no.<input id="i_no" value="INV-001"></label>
+<label>Invoice date<input id="i_dt" type="date"></label>
+<label>Supply type<select id="i_ty"><option value="intra">Same state (CGST + SGST)</option><option value="inter">Other state (IGST)</option></select></label>
+</div>
+<div class="items" id="i_rows"><div class="row" style="font-size:13px;color:var(--mute)"><span>Item</span><span>HSN</span><span>Qty</span><span>Rate ₹</span><span>GST %</span></div></div>
+<div class="cta"><button class="btn o" id="i_add" type="button">Add item</button><button class="btn" id="i_pr" type="button">Print or save as PDF</button></div>
+<div id="inv"></div>
+</div>
+
+<div class="panel" id="p-cal">
+<div class="cal"><button class="btn o" id="c_p" type="button" aria-label="Previous month">Prev</button><h3 id="c_t"></h3><button class="btn o" id="c_n" type="button" aria-label="Next month">Next</button></div>
+<div id="c_l"></div>
+<p class="note">Dates follow the usual due dates for regular filers. Extensions are announced from time to time, so confirm on the official portal before you file.</p>
+</div>
+
+<div class="panel" id="p-tax">
+<div class="g">
+<label>Yearly income (₹)<input id="x_inc" type="number" min="0" value="1500000"></label>
+<label>Section 80C (max 1.5L)<input id="x_c" type="number" min="0" value="150000"></label>
+<label>Health insurance 80D<input id="x_d" type="number" min="0" value="25000"></label>
+<label>Other old-regime deductions<input id="x_o" type="number" min="0" value="0"></label>
+<label>Income type<select id="x_s"><option value="1">Salary (standard deduction)</option><option value="0">Business or other</option></select></label>
+</div>
+<div class="cmp" id="x_out"></div>
+<p class="note">Estimate for an individual below 60, using the new regime slabs of ₹4L steps and the old regime slabs. Surcharge and marginal relief are not included.</p>
+</div>
+</div></section>
+
+<section id="services"><div class="w">
+<div class="sh"><h2>Built for marketplace sellers</h2></div>
+<div class="svc">
+<div><h3>Settlement reconciliation</h3><p>Match payouts from Amazon, Flipkart and Myntra against your books so fees, returns and TCS line up.</p></div>
+<div><h3>GST and TCS filing</h3><p>Monthly GSTR-1 and 3B with marketplace sales, credit for TCS and clean ITC claims.</p></div>
+<div><h3>Income tax and books</h3><p>Bookkeeping, advance tax and yearly returns for sole sellers, partnerships and companies.</p></div>
+</div></div></section>
+
+<section class="alt" id="consult"><div class="w">
+<div class="sh"><h2>Book a consultation</h2><p>Tell us what you sell and where. We will reply with a time to talk.</p></div>
+<div class="panel on">
+<div class="g">
+<label>Your name<input id="f_n" autocomplete="name"></label>
+<label>Phone or WhatsApp<input id="f_p" type="tel" autocomplete="tel"></label>
+<label>Where do you sell?<select id="f_m"><option>Amazon</option><option>Flipkart</option><option>Myntra</option><option>Meesho</option><option>Shopify or own website</option><option>Several platforms</option></select></label>
+<label>What do you need help with?<select id="f_t"><option>GST returns</option><option>TDS and TCS</option><option>Income tax</option><option>Bookkeeping</option><option>Registration</option></select></label>
+</div>
+<label style="margin-top:14px">Message<textarea id="f_g" rows="3"></textarea></label>
+<p style="margin:16px 0 0"><button class="btn" id="f_s" type="button">Send request</button></p>
+<p class="note" id="f_o"></p>
+</div></div></section>
+</main>
+
+<footer><div class="w">© 2026 Tax Wrapper. Tools give estimates and are not a substitute for professional advice.</div></footer>
+
+<script src="js/utils.js" defer></script>
+<script src="js/tabs.js" defer></script>
+<script src="js/tds.js" defer></script>
+<script src="js/invoice.js" defer></script>
+<script src="js/calendar.js" defer></script>
+<script src="js/tax-calculator.js" defer></script>
+<script src="js/consultation.js" defer></script>
+</body>
+</html>
