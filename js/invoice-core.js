@@ -42,6 +42,7 @@ return '<div class="iv"><h3>Tax Invoice</h3>'
 +'<div class="bd"><small>Amount Chargeable (in words)</small><b>'+inrWords(rd)+'</b></div>'
 +'<table><tr>'+hh+'</tr>'+hr+ht+'</table>'
 +'<div class="bd">Tax Amount (in words) : <b>'+inrWords(tax)+'</b></div>'
++(S.bk?'<div class="bd"><small>Company\u2019s Bank Details</small>'+esc(S.bk)+'</div>':'')
 +'<div class="ft"><div><small>Declaration</small>We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct.</div><div><span>for <b>'+esc(S.sn)+'</b></span><span>Authorised Signatory</span></div></div>'
 +'<p class="cg">This is a Computer Generated Invoice</p></div>'}
 

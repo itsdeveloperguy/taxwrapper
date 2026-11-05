@@ -10,12 +10,23 @@ $('i_rows').appendChild(e)}
 function collect(){var items=[];
 document.querySelectorAll('#i_rows .row:not(:first-child)').forEach(function(r){items.push({d:r.querySelector('.d').value,h:r.querySelector('.h').value,q:+r.querySelector('.q').value,r:+r.querySelector('.r').value,dc:+r.querySelector('.dc').value||0,g:+r.querySelector('.g').value})});
 var ref={};RK.forEach(function(k){ref[k]=$('r_'+k).value});
-return {s:S,no:$('i_no').value,dt:$('i_dt').value,ref:ref,items:items}}
-function preview(){if(!S.sn){openM();return}location.href='invoice.html'+twSave(collect())}
+return {s:S,no:$('i_no').value,dt:$('i_dt').value,ref:ref,items:items,id:CUR.id,ed:CUR.ed}}
+var CUR={id:'',ed:0};
+function preview(){if(!S.sn){openM();return}var d=collect(),id=twInvSave(d);if(id){d.id=id;CUR.id=id}location.href='invoice.html'+twSave(d)}
 
 /* Pop-up for seller and buyer details */
 var M=$('m'),K=['sn','sa','sg','bn','ba','bg'],GST=/^\d{2}[A-Z]{5}\d{4}[A-Z][A-Z\d]Z[A-Z\d]$/;
-function openM(){K.forEach(function(k){$('m_'+k).value=S[k]});$('m_su').checked=S.su;$('m_bu').checked=S.bu;$('m_ss').value=S.ss;$('m_bs').value=S.bs;syncU();$('m_e').textContent='';M.hidden=false;$('m_sn').focus()}
+var PB={t:'',n:''};
+function fillPick(){var u=twUser(),ml=$('m_ml');
+[['s','seller'],['b','buyer']].forEach(function(x){var l=u?twMasters(x[1]):[],sel=$('m_'+x[0]+'p');$('m_'+x[0]+'pl').hidden=!l.length;
+sel.innerHTML='<option value="">Choose a saved '+x[1]+'…</option>'+l.map(function(m){return '<option value="'+esc(m.id)+'">'+esc(m.n)+'</option>'}).join('')});
+ml.innerHTML=u?'<a href="masters.html" target="_blank" rel="noopener">Manage saved sellers and buyers</a>':'<a href="login.html">Log in</a> to save sellers and buyers for reuse.'}
+function pickM(x,id){if(!id)return;var m=twMasters(x==='s'?'seller':'buyer').filter(function(a){return a.id===id})[0];if(!m)return;
+$('m_'+x+'n').value=m.n;$('m_'+x+'a').value=twMasterAddr(m);var un=!m.g;$('m_'+x+'u').checked=un;$('m_'+x+'g').value=m.g||'';$('m_'+x+'s').value=un?m.s:'';syncU();
+if(x==='s'){PB.t=twBank(m);PB.n=m.n}$('m_e').textContent=''}
+$('m_sp').onchange=function(){pickM('s',this.value)};$('m_bp').onchange=function(){pickM('b',this.value)};
+window.addEventListener('storage',function(e){if(e.key==='tw-masters'&&!M.hidden){var a=$('m_sp').value,b=$('m_bp').value;fillPick();$('m_sp').value=a;$('m_bp').value=b}});
+function openM(){PB.t=S.bk||'';PB.n=S.sn;fillPick();K.forEach(function(k){$('m_'+k).value=S[k]});$('m_su').checked=S.su;$('m_bu').checked=S.bu;$('m_ss').value=S.ss;$('m_bs').value=S.bs;syncU();$('m_e').textContent='';M.hidden=false;$('m_sn').focus()}
 function closeM(){M.hidden=true}
 function syncU(){['s','b'].forEach(function(x){var u=$('m_'+x+'u').checked;$('m_'+x+'gl').hidden=u;$('m_'+x+'sw').hidden=!u})}
 ['m_su','m_bu'].forEach(function(i){$(i).onchange=syncU});
@@ -44,6 +55,7 @@ K.forEach(function(k){v[k]=$('m_'+k).value.trim()});
 v.ss=$('m_ss').value.trim();v.bs=$('m_bs').value.trim();
 v.sg=v.su?'':v.sg.toUpperCase();v.bg=v.bu?'':v.bg.toUpperCase();
 if(!v.su)v.ss='';if(!v.bu)v.bs='';
+v.bk=(PB.t&&v.sn===PB.n)?PB.t:'';
 var req=['sn','sa'].concat(v.su?[]:['sg'],['bn','ba'],v.bu?[]:['bg']);
 var bad=req.filter(function(k){return !v[k]})[0];
 if(bad){$('m_e').textContent='Please fill in all the fields.';$('m_'+bad).focus();return}
@@ -67,8 +79,16 @@ document.querySelector('.tabs button[data-t=inv]').addEventListener('click',open
 
 $('i_add').onclick=function(){addRow('New item','',1,0,18)};
 $('i_pr').onclick=preview;
+$('i_sv').onclick=function(){if(!twUser()){snack('Log in to save invoices','Your invoice is not saved yet.','warn',{href:'login.html',text:'Log in'});return}
+if(!S.sn){openM();return}
+var d=collect();
+if(!d.no.trim()){snack('Add an invoice number','Enter the invoice number, then save.','warn');$('i_no').focus();return}
+if(!d.items.length){snack('Add an item','An invoice needs at least one item.','warn');return}
+var id=twInvSave(d);
+if(!id){snack('Could not save','Your browser blocked saving. Allow site data and try again.','warn');return}
+CUR.id=id;snack('Invoice saved','No. '+d.no+' · '+d.s.bn,'',{href:'invoices.html',text:'View saved invoices'})};
 var sv=twLoad();
 if(sv&&sv.s&&sv.s.sn&&sv.items&&sv.items.length){
-S=sv.s;$('i_no').value=sv.no||'';$('i_dt').value=sv.dt||'';RK.forEach(function(k){$('r_'+k).value=(sv.ref||{})[k]||''});
+S=sv.s;CUR.id=sv.id||'';CUR.ed=sv.ed?1:0;$('i_no').value=sv.no||'';$('i_dt').value=sv.dt||'';RK.forEach(function(k){$('r_'+k).value=(sv.ref||{})[k]||''});
 sv.items.forEach(function(it){addRow(it.d,it.h,it.q,it.r,it.g,it.dc)})
 }else{$('i_dt').value=iso(today);addRow('Cotton T-shirt','6109',2,499,5)}
