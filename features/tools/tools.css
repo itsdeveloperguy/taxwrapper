@@ -1,0 +1,17 @@
+/* Free tools page: tabs, panels, TDS and tax calculator results */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.tabs button{font:500 15px 'DM Sans',sans-serif;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px 16px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.panel{display:none;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+.panel.on{display:block}
+.res{margin-top:20px;border-top:1px solid var(--line);padding-top:18px}
+.res table{width:100%;border-collapse:collapse;font-size:15px}
+.res td{padding:7px 4px;border-bottom:1px solid var(--line);text-align:left}
+.res .big{font:800 34px 'Bricolage Grotesque',sans-serif;color:var(--or-ink)}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.cmp div{border:1px solid var(--line);border-radius:10px;padding:14px}
+.cmp .win{border:2px solid var(--or)}
+@media(max-width:760px){.cmp{grid-template-columns:1fr}}
+.tabs button{transition:transform .2s cubic-bezier(.2,.8,.2,1),border-color .2s,box-shadow .2s}
+.tabs button:hover{transform:translateY(-2px);border-color:var(--or);box-shadow:0 8px 16px -10px rgba(0,0,0,.3)}
+.tabs button:active{transform:scale(.97)}

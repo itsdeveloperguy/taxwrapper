@@ -1,0 +1,56 @@
+/* Marketplace Image Resizer */
+/* Marketplace Image Resizer */
+.rzc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px}
+.rzc h3{font-size:20px;font-weight:800;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.rzc h3 .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--bg);font:700 14px 'DM Sans',sans-serif}
+.rz-drop{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:34px 16px;border:2px dashed var(--line);border-radius:12px;background:var(--bg);color:var(--ink);cursor:pointer;font-size:16px;transition:border-color .2s,background-color .2s}
+.rz-drop:hover,.rz-drop.drag,.rz-drop:focus-visible{border-color:var(--or);background:color-mix(in srgb,var(--or) 7%,var(--bg))}
+.rz-drop svg{width:38px;height:38px;color:var(--or-ink)}
+.rz-drop span{color:var(--mute);font-size:14px;font-weight:400}
+.rz-row{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}.rz-grow{flex:1 1 220px}
+.rz-chk{display:flex;align-items:center;gap:8px;margin-top:14px;color:var(--ink);font-size:15px}.rz-chk input{width:auto;margin:0}
+.rz-mute{color:var(--mute);font-weight:400;font-size:13px}
+.rz-fit{border:0;padding:0;margin:16px 0 0}.rz-fit legend{font-size:14px;color:var(--mute);font-weight:500;padding:0;margin-bottom:6px}
+.rz-opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;margin-bottom:6px;border:1px solid var(--line);border-radius:10px;color:var(--ink);font-size:14px;cursor:pointer}
+.rz-opt input{width:auto;margin:3px 0 0}.rz-opt b{display:block;font-size:15px}.rz-opt span{color:var(--mute)}
+.rz-opt:has(input:checked){border-color:var(--or);background:color-mix(in srgb,var(--or) 8%,var(--card))}
+.rz-bg{display:flex;align-items:center;gap:10px;margin-top:14px;color:var(--ink);font-size:15px}.rz-bg input{width:44px;height:34px;padding:2px;margin:0}
+.rz-cust{display:grid;grid-template-columns:1fr 110px;gap:14px;margin-top:14px}
+.rz-q{margin-top:16px}.rz-q input[type=range]{padding:0;border:0;background:none;accent-color:var(--or)}
+.rz-ticks{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);padding:0 2px}
+.rz-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px}.rz-bar>div{flex:1 1 200px;height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.rz-bar i,.rz-pg i{display:block;height:100%;background:var(--or);border-radius:99px;transition:width .2s}
+.rz-bar span{font-size:14px;color:var(--mute);overflow-wrap:anywhere}.rz-bar[hidden]{display:none}
+.rz-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px}
+.rz-sum>div{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--bg)}.rz-sum b{display:block;font:800 22px 'Bricolage Grotesque',sans-serif;color:var(--or-ink)}.rz-sum span{font-size:13px;color:var(--mute)}
+.rz-fin{margin-top:12px;padding:12px 14px;border-radius:10px;border:1px solid var(--line);font-size:14px}
+.rz-fin.rz-ok,.chip.rz-ok{border-color:#1a7f37;background:color-mix(in srgb,#1a7f37 12%,var(--bg))}
+.rz-fin.rz-warn,.chip.rz-warn{border-color:#b7791f;background:color-mix(in srgb,#d69e2e 16%,var(--bg))}
+.rz-fin.rz-fail,.chip.rz-fail,.chip.rz-f{border-color:var(--danger);background:color-mix(in srgb,var(--danger) 12%,var(--bg))}
+.rz-fin[hidden],.rz-sum[hidden],.rz-tools[hidden]{display:none}
+.rz-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.rz-it{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px;background:var(--bg)}.rz-it.work{border-color:var(--or)}
+.rz-ih{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}.rz-ih .rz-chk{margin:0;flex:1 1 200px;min-width:0}
+.rz-fn{overflow-wrap:anywhere;font-weight:600}
+.rz-cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rz-cmp figure{margin:0}.rz-cmp figcaption{text-align:center;font-size:13px;color:var(--mute);margin-top:4px}
+.rz-im{height:220px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:repeating-conic-gradient(color-mix(in srgb,var(--line) 55%,transparent) 0 25%,transparent 0 50%) 0 0/16px 16px}
+.rz-im img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+.rz-pg{height:6px;border-radius:99px;background:var(--line);margin-top:10px;overflow:hidden}
+.rz-tb{width:100%;border-collapse:collapse;font-size:14px;margin-top:12px}.rz-tb th,.rz-tb td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:left}.rz-tb thead th{color:var(--mute);font-weight:500}.rz-tb tbody th{font-weight:500;color:var(--mute)}
+.rz-sv{font-size:14px;margin:10px 0 0}
+.rz-vl{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:4px;font-size:14px}.rz-vl li{padding:6px 10px;border-radius:8px;border-left:4px solid}
+.rz-vl li.rz-ok{border-color:#1a7f37;background:color-mix(in srgb,#1a7f37 10%,var(--bg))}.rz-vl li.rz-warn{border-color:#b7791f;background:color-mix(in srgb,#d69e2e 14%,var(--bg))}.rz-vl li.rz-fail{border-color:var(--danger);background:color-mix(in srgb,var(--danger) 10%,var(--bg))}
+.rz-ac{display:flex;gap:12px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;margin-top:12px}
+.rz-nm{flex:1 1 260px}.rz-nmr{display:flex;align-items:center;gap:6px}.rz-nmr input{flex:1 1 120px;min-width:0}.rz-nmr span{white-space:nowrap}
+.rz-crop{max-width:520px}.rz-cv{display:grid;place-items:center;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px}
+.rz-cv canvas{max-width:100%;height:auto;touch-action:none;cursor:grab;border:1px solid var(--line);background:#fff}.rz-cv canvas:active{cursor:grabbing}
+@media(max-width:600px){.rzc{padding:16px}.rz-cmp{grid-template-columns:1fr}.rz-im{height:200px}.rz-cust{grid-template-columns:1fr 90px}.rz-nmr span{white-space:normal;font-size:12px}}
+@media print{.rz{display:none}}
+.rz-bar .sb[hidden]{display:none}
+
+/* The real file input covers the drop box, so a click always reaches it (no script needed to open the picker) */
+.rz-drop{position:relative}
+.rz-fi{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;border:0;opacity:0;cursor:pointer}
+.rz-fi::file-selector-button{width:100%;height:100%;cursor:pointer}
+.rz-drop:focus-within{border-color:var(--or);background:color-mix(in srgb,var(--or) 7%,var(--bg));outline:2px solid var(--or);outline-offset:2px}
+

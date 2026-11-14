@@ -1,0 +1,47 @@
+/* Home: "Why choose" slider under the hero. Scoped under .why / .ws-* */
+.why{padding:56px 0 64px;overflow:hidden;background:var(--bg)}
+.why h2{text-align:center;font-size:clamp(26px,3.6vw,40px);font-weight:800;letter-spacing:-.02em;padding:0 20px;margin-bottom:34px}
+.why h2 em,.ws-t em{font-style:normal;color:var(--or-ink)}
+.ws-view{position:relative;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+.ws-track{--sw:min(960px,86vw);--g:clamp(14px,2.8vw,52px);display:flex;gap:var(--g);position:relative;transition:transform .65s cubic-bezier(.2,.8,.2,1);will-change:transform}
+.ws-slide{flex:0 0 var(--sw);width:var(--sw);display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:390px;border-radius:28px;border:1px solid var(--line);background:color-mix(in srgb,var(--or) 6%,var(--bg2));overflow:hidden;opacity:.4;transform:scale(.95);transition:opacity .5s,transform .5s cubic-bezier(.2,.8,.2,1);cursor:pointer}
+.ws-slide.is-on{opacity:1;transform:none;cursor:default}
+.ws-vis{position:relative;align-self:stretch;min-height:300px;display:grid;place-items:center}
+.ws-vis::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--or) 30%,transparent),color-mix(in srgb,var(--or) 6%,transparent) 70%)}
+.ws-txt{padding:30px 44px 30px 6px}
+.ws-t{font-size:clamp(26px,3vw,34px);font-weight:800;letter-spacing:-.01em;margin-bottom:14px}
+.ws-txt p{color:var(--mute);font-size:18px;line-height:1.65;margin:0}
+.ws-panel{position:relative;z-index:1;width:min(250px,78%);background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 18px 40px -18px rgba(0,0,0,.35);font-size:13px}
+.ws-panel b{font-weight:700}
+.ws-pt{margin:0 0 2px;font-size:12px;color:var(--mute)}
+.ws-h{font:800 18px 'Bricolage Grotesque',sans-serif;margin-bottom:10px}
+.ws-r{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+.ws-r span:last-child{white-space:nowrap}
+.ws-tot{font-weight:800;font-size:15px}
+.ws-ok{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;background:#1a7f37;color:#fff;font-size:10px;margin-left:6px;vertical-align:1px}
+.ws-chip{position:absolute;top:-16px;right:-22px;z-index:2;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:var(--bg);border-radius:99px;padding:7px 14px;font-size:12.5px;font-weight:700;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+.ws-chip i{width:8px;height:8px;border-radius:50%;background:var(--or)}
+.ws-d{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;background:color-mix(in srgb,var(--or) 18%,transparent);color:var(--or-ink);font:800 14px 'Bricolage Grotesque',sans-serif;margin-right:10px}
+.ws-av{position:absolute;right:6%;bottom:0;width:46%;max-width:190px;z-index:0}
+.ws-call{display:flex;gap:8px;margin-top:10px}
+.ws-call span{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--bg2)}
+.ws-call span.on{background:var(--or);border-color:var(--or);color:#111}
+.ws-call svg{width:16px;height:16px}
+.ws-dots{display:flex;justify-content:center;gap:2px;margin-top:26px}
+.ws-dots button{border:0;background:none;padding:0;width:24px;height:24px;display:grid;place-items:center;cursor:pointer}
+.ws-dots button::before{content:'';width:8px;height:8px;border-radius:99px;background:color-mix(in srgb,var(--or) 28%,var(--line));transition:width .35s cubic-bezier(.2,.8,.2,1),background .3s}
+.ws-dots button[aria-current="true"]::before{width:24px;background:var(--or)}
+.ws-dots button:hover::before{background:var(--or)}
+@media(max-width:760px){
+ .why{padding:40px 0 48px}
+ .ws-track{--sw:88vw}
+ .ws-slide{grid-template-columns:1fr;min-height:0}
+ .ws-vis{min-height:0;padding:40px 0 16px}.ws-vis::before{width:230px;height:230px}
+ .ws-chip{right:-10px}
+ .ws-av{position:relative;right:auto;width:150px;margin-top:-10px}
+ .ws-slide:nth-child(3) .ws-vis{display:flex;flex-direction:column-reverse;align-items:center;padding-top:30px}
+ .ws-slide:nth-child(3) .ws-panel{margin:0 0 -8px!important}
+ .ws-txt{padding:4px 22px 28px}
+ .ws-txt p{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){.ws-track,.ws-slide,.ws-dots button::before{transition:none}}

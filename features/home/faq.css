@@ -1,0 +1,29 @@
+/* Home: FAQ accordion under the slider. Scoped under .faq / .fq-* */
+.faq{padding:56px 0 64px;border-top:1px solid var(--line);background:var(--bg)}
+.faq .fq{display:grid;grid-template-columns:minmax(200px,1fr) 3fr;gap:48px;align-items:start}
+.fq-h h2{font-size:clamp(28px,3.4vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.fq-h p{color:var(--mute);font-size:15px;margin:14px 0 0}
+.fq-h a{color:var(--or-ink);font-weight:700}
+.fq-l{border-bottom:1px solid var(--line)}
+.fq-i{border-top:1px solid var(--line)}
+.fq-q{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;padding:20px 4px;cursor:pointer;font:500 18px 'DM Sans',sans-serif;color:var(--ink);transition:color .2s}
+.fq-q:hover{color:var(--or-ink)}
+.fq-q:focus-visible{outline:3px solid var(--or);outline-offset:2px;border-radius:6px}
+.fq-pm{position:relative;flex:none;width:26px;height:26px;border-radius:50%;background:var(--mute);transition:background .25s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.fq-pm::before,.fq-pm::after{content:'';position:absolute;left:7px;top:12px;width:12px;height:2px;border-radius:2px;background:var(--bg);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.fq-pm::after{transform:rotate(90deg)}
+.fq-i.is-open .fq-q{color:var(--or-ink);font-weight:700}
+.fq-i.is-open .fq-pm{background:var(--or)}
+.fq-i.is-open .fq-pm::before,.fq-i.is-open .fq-pm::after{background:#111}
+.fq-i.is-open .fq-pm::after{transform:rotate(0)}
+.fq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1)}
+.fq-i.is-open .fq-a{grid-template-rows:1fr}
+.fq-a>div{overflow:hidden}
+.fq-a .fq-b{padding:0 44px 22px 4px;color:var(--mute);font-size:16px;line-height:1.7}
+.fq-b p{margin:0 0 10px}.fq-b p:last-child{margin:0}
+.fq-b ul{margin:6px 0 10px;padding-left:20px}.fq-b li{margin-bottom:4px}
+.fq-b b{color:var(--ink)}
+.fq-b a{color:var(--or-ink);font-weight:600}
+.fq-n{margin-top:18px;color:var(--mute);font-size:13px}
+@media(max-width:860px){.faq{padding:40px 0 48px}.faq .fq{grid-template-columns:1fr;gap:22px}.fq-q{font-size:16px}.fq-a .fq-b{padding-right:8px;font-size:15px}}
+@media(prefers-reduced-motion:reduce){.fq-a,.fq-pm,.fq-pm::before,.fq-pm::after{transition:none}}

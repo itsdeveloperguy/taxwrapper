@@ -1,0 +1,28 @@
+/* HSN Code Lookup styles. Scoped under .hsn / .hsn-* */
+.hsn-c{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px}
+.hsn-c[hidden]{display:none}
+.hsn-c h3{font-size:20px;font-weight:800;margin-bottom:14px}
+.hsn-row{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}.hsn-grow{flex:1 1 240px}
+.hsn-ex{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:99px;padding:2px 10px;font:inherit;font-size:13px;cursor:pointer}
+.hsn-ex:hover{border-color:var(--or)}
+.hsn-v{margin-top:16px;padding:14px 16px;border-radius:12px;border:1px solid var(--line)}
+.hsn-v.ok{border-color:#1a7f37;background:color-mix(in srgb,#1a7f37 11%,var(--bg))}
+.hsn-v.warn{border-color:#b7791f;background:color-mix(in srgb,#d69e2e 15%,var(--bg))}
+.hsn-v.bad{border-color:var(--danger);background:color-mix(in srgb,var(--danger) 11%,var(--bg))}
+.hsn-v h4{font:800 18px 'Bricolage Grotesque',sans-serif;margin:0 0 6px;overflow-wrap:anywhere}
+.hsn-v p{margin:4px 0;font-size:15px}
+.hsn-code{font-family:ui-monospace,Menlo,Consolas,monospace;letter-spacing:.04em}
+.hsn-tr{margin-top:10px;display:grid;gap:6px}
+.hsn-tr div{display:flex;gap:10px;font-size:14px;flex-wrap:wrap}.hsn-tr b{min-width:92px}
+.hsn-src{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.hsn-src a{display:block;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);text-decoration:none}
+.hsn-src a:hover,.hsn-src a:focus-visible{border-color:var(--or)}
+.hsn-src b{display:block;font-size:15px}.hsn-src span{color:var(--mute);font-size:13px}
+.hsn-hits{margin-top:12px;display:grid;gap:8px}
+.hsn-hit{display:flex;gap:12px;align-items:baseline;text-align:left;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;cursor:pointer}
+.hsn-hit:hover{border-color:var(--or)}.hsn-hit b{min-width:48px}
+.hsn-tw{overflow-x:auto;margin-top:12px}
+.hsn-tw table{width:100%;border-collapse:collapse;font-size:14px}
+.hsn-tw th,.hsn-tw td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.hsn-rl{display:flex;gap:6px;flex-wrap:wrap}
+@media(max-width:520px){.hsn-c{padding:16px}.hsn-tr b{min-width:0}}

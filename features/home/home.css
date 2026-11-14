@@ -1,0 +1,40 @@
+/* Home page: hero, services, due dates strip */
+.hero-s{overflow:hidden;background:radial-gradient(60% 90% at 88% 18%,color-mix(in srgb,var(--or) 11%,transparent),transparent 70%),var(--bg)}
+.hero{padding:56px 20px 52px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(36px,5.6vw,60px);font-weight:800;letter-spacing:-.02em}
+.hero p{color:var(--mute);font-size:18px;max-width:520px;margin:18px 0 26px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.hcta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.hc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 12px 32px -14px rgba(0,0,0,.22)}
+.hc .btn{display:block;width:100%;text-align:center}
+.ic{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:color-mix(in srgb,var(--or) 16%,transparent);color:var(--or-ink);margin-bottom:18px}
+.ic svg{width:24px;height:24px}
+.hr{position:relative}
+.hr::before{content:'';position:absolute;right:-90px;top:-70px;width:300px;height:300px;border-radius:50%;border:34px solid color-mix(in srgb,var(--or) 14%,transparent)}
+.band{background:var(--bg2);border-top:1px solid var(--line)}
+.mk{display:flex;gap:10px;flex-wrap:wrap;padding-top:18px;padding-bottom:18px;font-size:14px;color:var(--mute)}
+.mk span{border:1px solid var(--line);border-radius:99px;padding:3px 14px;background:var(--card)}
+.due{position:relative;z-index:1;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 20px 44px -18px rgba(0,0,0,.28)}
+.due h3{font-size:19px;text-align:center;margin-bottom:12px}
+.due #soon>div{display:grid;grid-template-columns:68px 1fr;gap:14px;align-items:baseline;padding:12px 0;border-top:1px solid var(--line);font-size:15px}
+.due b{color:var(--or-ink);white-space:nowrap;font-family:'Bricolage Grotesque',sans-serif;font-size:17px}
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+.svc h3{font-size:19px;margin-bottom:6px}.svc p{color:var(--mute);margin:0}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:36px;gap:32px}.hr::before{width:200px;height:200px;border-width:26px;right:-70px;top:-50px}}
+/* Hero fly-in and button hover animations */
+@keyframes flyL{from{opacity:0;transform:translateX(-64px)}to{opacity:1;transform:none}}
+@keyframes flyR{from{opacity:0;transform:translateX(84px)}to{opacity:1;transform:none}}
+@keyframes flyU{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes ringIn{from{opacity:0;transform:scale(.55) rotate(-35deg)}to{opacity:1;transform:none}}
+.hero h1{animation:flyL .8s cubic-bezier(.2,.8,.2,1) backwards}
+.hero p{animation:flyL .8s .12s cubic-bezier(.2,.8,.2,1) backwards}
+.hc{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.hc:nth-child(1){animation:flyU .7s .3s cubic-bezier(.2,.8,.2,1) backwards}
+.hc:nth-child(2){animation:flyU .7s .42s cubic-bezier(.2,.8,.2,1) backwards}
+.hc:hover{transform:translateY(-6px);box-shadow:0 20px 40px -14px rgba(0,0,0,.3)}
+.ic{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.hc:hover .ic{transform:rotate(-8deg) scale(1.12)}
+.due{animation:flyR .9s .2s cubic-bezier(.2,.8,.2,1) backwards}
+.hr::before{animation:ringIn 1.2s .1s cubic-bezier(.2,.8,.2,1) backwards}
+.mk span{animation:flyU .5s cubic-bezier(.2,.8,.2,1) backwards}
+.mk span:nth-child(1){animation-delay:.55s}.mk span:nth-child(2){animation-delay:.62s}.mk span:nth-child(3){animation-delay:.69s}.mk span:nth-child(4){animation-delay:.76s}.mk span:nth-child(5){animation-delay:.83s}

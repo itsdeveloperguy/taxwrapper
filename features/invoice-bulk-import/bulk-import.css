@@ -1,0 +1,20 @@
+/* Bulk invoice import */
+.mbox.bk{max-width:880px}
+.bk-h{display:flex;align-items:center;gap:10px;margin:20px 0 8px;font-size:16px}
+.bk-h .n{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--or);color:#fff;font-size:13px;font-weight:600}
+.bk-drop{margin-top:4px;position:relative;padding:26px 16px}
+.bk-sum{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.bk-sum span{padding:5px 12px;border-radius:999px;border:1px solid var(--line);font-size:14px}
+.bk-sum .ok{border-color:#1a7f37;background:color-mix(in srgb,#1a7f37 12%,var(--bg))}
+.bk-sum .wn{border-color:#b7791f;background:color-mix(in srgb,#d69e2e 16%,var(--bg))}
+.bk-sum .er{border-color:#c0392b;background:color-mix(in srgb,#c0392b 12%,var(--bg))}
+.bk-scroll{overflow:auto;max-height:300px;border:1px solid var(--line);border-radius:10px}
+.bk-t{width:100%;border-collapse:collapse;font-size:14px}
+.bk-t th,.bk-t td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.bk-t th{position:sticky;top:0;background:var(--card);font-weight:600}
+.bk-t .rt{text-align:right}
+.bk-t .st-ok{color:#1a7f37;font-weight:600}.bk-t .st-wn{color:#b7791f;font-weight:600}.bk-t .st-er{color:#c0392b;font-weight:600}
+.bk-t .em{display:block;color:var(--mute);font-size:13px;font-weight:400}
+.bk-t .sb{margin:0 4px 4px 0}
+.lerr{color:#c0392b;min-height:0}.lerr:empty{display:none}
+@media(max-width:600px){.bk-t th,.bk-t td{padding:6px}}
